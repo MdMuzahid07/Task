@@ -63,7 +63,6 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
           <Card />
           <Card />
           <Card />
-          <Card />
         </div>
       </div>
     </Drawer>

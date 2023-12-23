@@ -2,11 +2,13 @@ import { useState } from "react";
 import Search from "../search/Search";
 import Mobile from "./Mobile";
 import Cart from "../../Cart/Cart";
+import Profile from "../../profile/Profile";
 
 const Navbar = () => {
   const [activeDrawer, setActiveDrawer] = useState(false);
   const [activeMobile, setActiveMobile] = useState(false);
   const [cartActive, setCartActive] = useState(false);
+  const [activeProfile, setActiveProfile] = useState(false);
 
   return (
     <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 xl:px-0 z-50">
@@ -100,13 +102,20 @@ const Navbar = () => {
               />
             </li>
             <li className="cursor-pointer">
-              <figure className="h-5 w-5 md:w-8 md:h-8 overflow-hidden rounded-full">
+              <figure
+                onClick={() => setActiveProfile(!activeProfile)}
+                className="h-5 w-5 md:w-8 md:h-8 overflow-hidden rounded-full"
+              >
                 <img
                   className="w-full h-full object-cover object-center"
                   src="https://img.freepik.com/free-photo/man-isolated-showing-emotions-end-gestures_1303-30095.jpg?w=826&t=st=1703299167~exp=1703299767~hmac=d36ca47a67441d7f9bedbda91363fee7072b555ec73316292f5b0b543b3c4c83"
                   alt=""
                 />
               </figure>
+              <Profile
+                activeProfile={activeProfile}
+                styles={`absolute top-[80px] bg-white w-80 h-96 p-5 right-[10vw] shadow-sm z-20 rounded-2xl`}
+              />
             </li>
           </ul>
         </ul>

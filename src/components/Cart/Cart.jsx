@@ -8,14 +8,6 @@ const Cart = ({ cartActive, styles }) => {
       <div className="overflow-y-auto h-[70vh] pr-2">
         <CartCard />
         <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
       </div>
       <hr className="my-3" />
       <div className="w-full h-full bg-white">
