@@ -1,21 +1,54 @@
 import { useState } from "react";
 import Search from "../search/Search";
+import Mobile from "./Mobile";
 
 const Navbar = () => {
   const [activeDrawer, setActiveDrawer] = useState(false);
+  const [activeMobile, setActiveMobile] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 md:px-0 z-50">
+    <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 xl:px-0 z-50">
       <div className="max-w-7xl mx-auto w-full">
         <ul className="flex items-center justify-between">
+          <li className="block md:hidden">
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-xl border"
+              onClick={() => setActiveMobile(!activeMobile)}
+            >
+              {activeMobile ? (
+                <span className="font-bold">X</span>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              )}
+            </button>
+            <Mobile
+              activeMobile={activeMobile}
+              setActiveMobile={setActiveMobile}
+            />
+          </li>
           <li className="cursor-pointer">
             <h1 className="text-[20px] md:text-[30px] font-bold">Shop</h1>
           </li>
-          <ul className="flex items-center gap-7 ">
-            <li className="text-[16px] cursor-pointer">Home</li>
-            <li className="text-[16px] cursor-pointer">Shop</li>
-          </ul>
-          <ul className="flex items-center gap-6">
+          <li className="hidden md:block">
+            <ul className="flex items-center gap-7 ">
+              <li className="text-[16px] cursor-pointer">Home</li>
+              <li className="text-[16px] cursor-pointer">Shop</li>
+            </ul>
+          </li>
+          <ul className="flex items-center gap-3 md:gap-6">
             <li className="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +56,7 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-4 w-4 md:w-7 md:h-7"
               >
                 <path
                   strokeLinecap="round"
@@ -42,7 +75,7 @@ const Navbar = () => {
                   stroke="currentColor"
                   className={`${
                     activeDrawer ? "text-red-500" : "text-black"
-                  } w-7 h-7 `}
+                  } h-4 w-4 md:w-7 md:h-7 `}
                 >
                   <path
                     strokeLinecap="round"
@@ -57,7 +90,7 @@ const Navbar = () => {
               />
             </li>
             <li className="cursor-pointer">
-              <figure className="w-8 h-8 overflow-hidden rounded-full">
+              <figure className="h-5 w-5 md:w-8 md:h-8 overflow-hidden rounded-full">
                 <img
                   className="w-full h-full object-cover object-center"
                   src="https://img.freepik.com/free-photo/man-isolated-showing-emotions-end-gestures_1303-30095.jpg?w=826&t=st=1703299167~exp=1703299767~hmac=d36ca47a67441d7f9bedbda91363fee7072b555ec73316292f5b0b543b3c4c83"

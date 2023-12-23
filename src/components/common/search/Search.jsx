@@ -20,7 +20,7 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
 
   return (
     <Drawer
-      styles="w-full min-h-[70vh] fixed top-[70px] right-0 bg-white border-b"
+      styles="w-full h-screen md:min-h-[70vh] fixed top-[70px] right-0 bg-white border-b"
       setActiveDrawer={setActiveDrawer}
       activeDrawer={activeDrawer}
     >
@@ -31,7 +31,7 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
               type="text"
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => handleKey(e)}
-              className="min-w-[900px] border px-10 h-16 focus:outline-none placeholder:text-slate-500 text-black placeholder:text-xl rounded-full"
+              className="max-w-[350px] md:min-w-[700px] lg:min-w-[900px] border px-10 h-16 focus:outline-none placeholder:text-slate-500 text-black placeholder:text-xl rounded-full"
               placeholder="search for ...."
             />
             <button
@@ -58,7 +58,8 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
         </div>
 
         {/* product cards  */}
-        <div className="grid md:grid-cols-3 max-h-[50vh] lg:grid-cols-4 gap-10 overflow-y-auto">
+        <div className="flex flex-wrap justify-center xl:justify-start gap-20 h-[60vh] md:max-h-[50vh] overflow-y-auto">
+          <Card />
           <Card />
           <Card />
           <Card />
