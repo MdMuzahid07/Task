@@ -33,7 +33,9 @@ const Card = () => {
               </svg>
               Add Cart
             </button>
-            <button className="font-bold">Buy</button>
+            <button className="font-bold hover:text-red-500 transition delay-50 ease-in">
+              Buy
+            </button>
           </div>
         </div>
       </div>

@@ -58,7 +58,9 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
         </div>
 
         {/* product cards  */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-3 max-h-[50vh] lg:grid-cols-4 gap-10 overflow-y-auto">
+          <Card />
+          <Card />
           <Card />
           <Card />
           <Card />

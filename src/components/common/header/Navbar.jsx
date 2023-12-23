@@ -5,7 +5,7 @@ const Navbar = () => {
   const [activeDrawer, setActiveDrawer] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 md:px-0">
+    <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 md:px-0 z-50">
       <div className="max-w-7xl mx-auto w-full">
         <ul className="flex items-center justify-between">
           <li className="cursor-pointer">
@@ -40,7 +40,9 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-7 h-7 "
+                  className={`${
+                    activeDrawer ? "text-red-500" : "text-black"
+                  } w-7 h-7 `}
                 >
                   <path
                     strokeLinecap="round"
