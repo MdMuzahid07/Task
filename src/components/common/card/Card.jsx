@@ -1,14 +1,14 @@
 const Card = () => {
   return (
-    <div className="sm:max-w-[230px] w-full rounded-xl border bg-white text-black relative">
+    <div className="sm:max-w-[250px] md:max-w-[270px] h-full w-full rounded-xl border bg-white text-black relative">
       <figure>
         <img
-          className="h-[250px] sm:h-[200px] rounded-t-xl w-full object-cover object-center"
+          className="h-[250px] sm:max-h-[200px] rounded-t-xl w-full object-cover object-center"
           src="https://img.freepik.com/free-photo/close-up-futuristic-sneakers-showcase_23-2151005677.jpg?t=st=1703304959~exp=1703308559~hmac=74d08789350b198e679c98b59afc1cd4a745c9b4d3d4618a95994040f0f64ca9&w=360"
           alt=""
         />
       </figure>
-      <div className="h-[170px] sm:h-[150px] w-full p-4">
+      <div className="max-h-[100px] h-full w-full p-4">
         <div className="flex justify-between items-center">
           <p>title</p>
           <p>$40</p>

@@ -58,7 +58,8 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
         </div>
 
         {/* product cards  */}
-        <div className="flex flex-wrap justify-center xl:justify-start gap-20 h-[60vh] md:max-h-[50vh] overflow-y-auto">
+        <div className="flex flex-wrap justify-center xl:justify-start gap-10 h-[60vh] md:max-h-[50vh] overflow-y-auto">
+          <Card />
           <Card />
           <Card />
           <Card />
