@@ -4,15 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = ({ styles, activeProfile }) => {
   const navigate = useNavigate();
+  const firstName = localStorage.getItem("firstName");
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("userImage");
+    localStorage.removeItem("firstName");
     navigate("/login");
   };
 
   return (
     <Drawer styles={styles} activeDrawer={activeProfile}>
-      <h1 className="text-4xl">Hello, John</h1>
+      <h1 className="text-4xl">Hello, {firstName ? firstName : "John"}</h1>
       <p>Welcome to our shop</p>
       <ul className="mt-14 text-2xl">
         <li className="mb-3">Profile</li>

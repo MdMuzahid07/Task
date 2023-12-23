@@ -10,6 +10,8 @@ const Navbar = () => {
   const [cartActive, setCartActive] = useState(false);
   const [activeProfile, setActiveProfile] = useState(false);
 
+  const userImage = localStorage.getItem("userImage");
+
   return (
     <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 xl:px-0 z-50">
       <div className="max-w-7xl mx-auto w-full">
@@ -107,8 +109,12 @@ const Navbar = () => {
                 className="h-5 w-5 md:w-8 md:h-8 overflow-hidden rounded-full"
               >
                 <img
-                  className="w-full h-full object-cover object-center"
-                  src="https://img.freepik.com/free-photo/man-isolated-showing-emotions-end-gestures_1303-30095.jpg?w=826&t=st=1703299167~exp=1703299767~hmac=d36ca47a67441d7f9bedbda91363fee7072b555ec73316292f5b0b543b3c4c83"
+                  className="w-full h-full object-cover object-center rounded-full border "
+                  src={
+                    userImage
+                      ? userImage
+                      : "https://img.freepik.com/free-photo/man-isolated-showing-emotions-end-gestures_1303-30095.jpg?w=826&t=st=1703299167~exp=1703299767~hmac=d36ca47a67441d7f9bedbda91363fee7072b555ec73316292f5b0b543b3c4c83"
+                  }
                   alt=""
                 />
               </figure>

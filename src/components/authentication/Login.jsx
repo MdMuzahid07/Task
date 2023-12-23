@@ -6,9 +6,11 @@ const Login = () => {
   const [password, setPassword] = useState(" ");
   const [data, setData] = useState();
   const navigate = useNavigate();
-
+  console.log(data);
   if (data?.email && data?.username) {
     localStorage.setItem("authToken", data?.token);
+    localStorage.setItem("userImage", data?.image);
+    localStorage.setItem("firstName", data?.firstName);
     navigate("/");
   }
 
@@ -21,7 +23,6 @@ const Login = () => {
       body: JSON.stringify({
         username: name,
         password: password,
-        // expiresInMins: 60, // optional
       }),
     })
       .then((res) => res.json())
@@ -32,7 +33,7 @@ const Login = () => {
     <div className="bg-white w-full min-h-screen flex justify-center items-center">
       <div className="max-w-xs mx-auto">
         <h1 className="text-3xl">Login</h1>
-        <form onClick={handleLogin}>
+        <form onSubmit={handleLogin}>
           <div className="mt-5 mb-3">
             <label
               className="w-full inline-block text-2xl mb-2"
