@@ -5,7 +5,15 @@ import Drawer from "../drawer/Drawer";
 const Cart = ({ cartActive, styles }) => {
   return (
     <Drawer activeDrawer={cartActive} styles={styles}>
-      <div className="overflow-y-auto min-h-[70vh]">
+      <div className="overflow-y-auto h-[70vh] pr-2">
+        <CartCard />
+        <CartCard />
+        <CartCard />
+        <CartCard />
+        <CartCard />
+        <CartCard />
+        <CartCard />
+        <CartCard />
         <CartCard />
         <CartCard />
       </div>
