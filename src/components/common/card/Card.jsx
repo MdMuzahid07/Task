@@ -16,7 +16,7 @@ const Card = () => {
         <p className="text-xs mt-1">Lorem ipsum dolor sit amet consectetur</p>
         <div className="absolute bottom-4">
           <div className="flex items-center gap-10">
-            <button className="text-xs w-28 flex items-center gap-2 justify-center border rounded-full py-0.5">
+            <button className="text-xs w-28 flex items-center gap-2 justify-center border rounded-full py-0.5 hover:bg-black hover:text-white transition delay-50 ease-in">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
