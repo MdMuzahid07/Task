@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import Drawer from "../../drawer/Drawer";
+import Card from "../card/Card";
 
 const Search = ({ activeDrawer, setActiveDrawer }) => {
   const [inputValue, setInputValue] = useState(" ");
@@ -19,7 +20,7 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
 
   return (
     <Drawer
-      styles="w-full min-h-[50vh] fixed top-[70px] right-0 bg-white border-b"
+      styles="w-full min-h-[70vh] fixed top-[70px] right-0 bg-white border-b"
       setActiveDrawer={setActiveDrawer}
       activeDrawer={activeDrawer}
     >
@@ -54,6 +55,14 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
               </svg>
             </button>
           </div>
+        </div>
+
+        {/* product cards  */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </Drawer>
