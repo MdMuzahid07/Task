@@ -10,7 +10,7 @@ const Profile = ({ styles, activeProfile }) => {
         <li className="mb-3">Profile</li>
         <li className="mb-3">Orders</li>
         <li className="mb-10">Dashboard</li>
-        <li className="text-red-500">Logout</li>
+        <li className="text-red-500 tracking-widest">Logout</li>
       </ul>
     </Drawer>
   );

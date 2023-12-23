@@ -1,5 +1,6 @@
 import Footer from "./components/common/footer/Footer";
 import Navbar from "./components/common/header/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
         quis, vel id.
       </p>
       <Footer />
+      <Toaster />
     </div>
   );
 };
