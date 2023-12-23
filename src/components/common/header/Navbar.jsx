@@ -73,7 +73,7 @@ const Navbar = () => {
                 </svg>
               </button>
               <Cart
-                styles={`absolute top-[70px] min-h-[100vh] bg-white right-0 w-[100vw] md:w-[50vw] lg:w-[25vw] px-5 py-10`}
+                styles={`absolute top-[70px] min-h-[100vh] bg-white right-0 w-[100vw] md:w-[50vw] lg:w-[25vw] px-5 py-10 border-l`}
                 cartActive={cartActive}
               />
             </li>

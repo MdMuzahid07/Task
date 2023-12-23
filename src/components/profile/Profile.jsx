@@ -1,7 +1,15 @@
 /* eslint-disable react/prop-types */
 import Drawer from "../drawer/Drawer";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ styles, activeProfile }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/login");
+  };
+
   return (
     <Drawer styles={styles} activeDrawer={activeProfile}>
       <h1 className="text-4xl">Hello, John</h1>
@@ -10,7 +18,9 @@ const Profile = ({ styles, activeProfile }) => {
         <li className="mb-3">Profile</li>
         <li className="mb-3">Orders</li>
         <li className="mb-10">Dashboard</li>
-        <li className="text-red-500 tracking-widest">Logout</li>
+        <li onClick={handleLogout} className="text-red-500 tracking-widest">
+          Logout
+        </li>
       </ul>
     </Drawer>
   );
