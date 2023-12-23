@@ -1,7 +1,19 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getProductData } from "./features/products/productSlice";
+
 const App = () => {
   const navigate = useNavigate();
+
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(getProductData());
+  }, [dispatch]);
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
