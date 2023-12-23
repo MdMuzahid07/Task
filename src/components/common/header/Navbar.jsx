@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Search from "../search/Search";
 import Mobile from "./Mobile";
+import Cart from "../../Cart/Cart";
 
 const Navbar = () => {
   const [activeDrawer, setActiveDrawer] = useState(false);
   const [activeMobile, setActiveMobile] = useState(false);
+  const [cartActive, setCartActive] = useState(false);
 
   return (
     <nav className="bg-white sticky top-0 left-0 h-[70px] border-b drop-shadow-sm w-full flex items-center text-black px-5 xl:px-0 z-50">
@@ -50,20 +52,28 @@ const Navbar = () => {
           </li>
           <ul className="flex items-center gap-3 md:gap-6">
             <li className="cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-4 w-4 md:w-7 md:h-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                />
-              </svg>
+              <button onClick={() => setCartActive(!cartActive)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className={`h-4 w-4 md:w-7 md:h-7 ${
+                    cartActive ? "text-red-500" : "text-black"
+                  }`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                  />
+                </svg>
+              </button>
+              <Cart
+                styles={`absolute top-[70px] min-h-[100vh] bg-white right-0 w-[100vw] md:w-[50vw] lg:w-[25vw] px-5 py-10`}
+                cartActive={cartActive}
+              />
             </li>
             <li className="cursor-pointer flex items-center">
               <button onClick={() => setActiveDrawer(!activeDrawer)}>
