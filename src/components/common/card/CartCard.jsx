@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeProduct } from "../../../features/products/productSlice";
 
 const CartCard = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
   const handleQuantity = (value) => {
     if (value) {
       const count = quantity + 1;
@@ -38,7 +42,10 @@ const CartCard = ({ product }) => {
           <button onClick={() => handleQuantity(true)}>+</button>
         </div>
       </div>
-      <button className="absolute right-2 top-2 w-7 h-7 flex items-center justify-center border rounded-full bg-white text-black">
+      <button
+        onClick={() => dispatch(removeProduct(product?.id))}
+        className="absolute right-2 top-2 w-7 h-7 flex items-center justify-center border rounded-full bg-white text-black"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
