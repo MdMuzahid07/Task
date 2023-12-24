@@ -1,19 +1,20 @@
+/* eslint-disable react/prop-types */
 const Card = ({ product }) => {
   return (
     <div className="sm:max-w-[250px] md:max-w-[270px] h-full max-h-[400px] sm:max-h-[350px] w-full rounded-xl border bg-white text-black relative">
       <figure>
         <img
           className="h-[250px] sm:max-h-[200px] rounded-t-xl w-full object-cover object-center"
-          src="https://img.freepik.com/free-photo/close-up-futuristic-sneakers-showcase_23-2151005677.jpg?t=st=1703304959~exp=1703308559~hmac=74d08789350b198e679c98b59afc1cd4a745c9b4d3d4618a95994040f0f64ca9&w=360"
+          src={product?.thumbnail}
           alt=""
         />
       </figure>
       <div className="min-h-[150px] h-full w-full p-4">
         <div className="flex justify-between items-center">
-          <p>title</p>
-          <p>$40</p>
+          <p>{product?.title}</p>
+          <p>${product?.price}</p>
         </div>
-        <p className="text-xs mt-1">Lorem ipsum dolor sit amet consectetur</p>
+        <p className="text-xs mt-1">{product?.description.slice(0, 25)}...</p>
         <div className="absolute bottom-4">
           <div className="flex items-center gap-10">
             <button className="text-xs w-28 flex items-center gap-2 justify-center border rounded-full py-0.5 hover:bg-black hover:text-white transition delay-50 ease-in">

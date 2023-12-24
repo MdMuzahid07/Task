@@ -28,7 +28,7 @@ const FeaturesProducts = () => {
           <div className="col-span-9">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
               {products?.map((product) => (
-                <Card key={product?.id} />
+                <Card key={product?.id} product={product} />
               ))}
             </div>
           </div>
