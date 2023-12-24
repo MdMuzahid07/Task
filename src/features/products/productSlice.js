@@ -4,6 +4,7 @@ import { fetchProduct } from "./productApi";
 
 const projectState = {
     products: [],
+    cart: [],
     isLoading: false,
     isError: false,
     error: "",
@@ -19,6 +20,11 @@ export const getProductData = createAsyncThunk("products/getProducts", async () 
 const productSlice = createSlice({
     name: "products",
     initialState: projectState,
+    reducers: {
+        addToCart: (state, action) => {
+            state.cart = [...state.cart, action.payload]
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getProductData.pending, (state) => {
             state.isLoading = true,
@@ -36,4 +42,5 @@ const productSlice = createSlice({
     }
 });
 
+export const { addToCart } = productSlice.actions;
 export default productSlice.reducer;

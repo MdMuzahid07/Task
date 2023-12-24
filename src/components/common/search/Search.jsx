@@ -7,9 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Search = ({ activeDrawer, setActiveDrawer }) => {
   const [inputValue, setInputValue] = useState(" ");
-  const { products, isLoading, isError, error } = useSelector(
-    (state) => state.products
-  );
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   let filterProducts = products.filter((product) =>

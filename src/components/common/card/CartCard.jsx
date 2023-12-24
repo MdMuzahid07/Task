@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const CartCard = () => {
-  const [quantity, setQuantity] = useState(0);
+const CartCard = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
   const handleQuantity = (value) => {
     if (value) {
       const count = quantity + 1;
@@ -12,21 +13,23 @@ const CartCard = () => {
     }
   };
 
-  const total = 45 * quantity;
+  const total = product?.price * quantity;
+
+  console.log(product, "cart card");
 
   return (
     <div className="w-full h-[150px] bg-slate-100 rounded-xl p-4 mb-7 flex justify-between relative">
       <figure className="w-[30%]">
         <img
           className="h-full rounded-xl w-full object-cover object-center"
-          src="https://img.freepik.com/free-photo/close-up-futuristic-sneakers-showcase_23-2151005677.jpg?t=st=1703304959~exp=1703308559~hmac=74d08789350b198e679c98b59afc1cd4a745c9b4d3d4618a95994040f0f64ca9&w=360"
+          src={product?.thumbnail}
           alt=""
         />
       </figure>
       <div className="w-[70%] pl-3 relative">
-        <h1 className="text-[18px]">Product name</h1>
+        <h1 className="text-[18px]">{product?.title}</h1>
         <p>
-          $45 <span>* {quantity}</span> <span>= ${total}</span>
+          ${product?.price} <span>* {quantity}</span> <span>= ${total}</span>
         </p>
 
         <div className="flex items-center gap-3 absolute bottom-0">

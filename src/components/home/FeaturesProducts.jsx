@@ -4,9 +4,7 @@ import { useEffect } from "react";
 import Card from "../common/card/Card";
 
 const FeaturesProducts = () => {
-  const { products, isLoading, isError, error } = useSelector(
-    (state) => state.products
-  );
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   console.log(products);

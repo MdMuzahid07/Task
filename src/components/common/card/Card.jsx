@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../features/products/productSlice";
+
 const Card = ({ product }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="sm:max-w-[250px] md:max-w-[270px] h-full max-h-[400px] sm:max-h-[350px] w-full rounded-xl border bg-white text-black relative">
       <figure>
@@ -17,7 +22,10 @@ const Card = ({ product }) => {
         <p className="text-xs mt-1">{product?.description.slice(0, 25)}...</p>
         <div className="absolute bottom-4">
           <div className="flex items-center gap-10">
-            <button className="text-xs w-28 flex items-center gap-2 justify-center border rounded-full py-0.5 hover:bg-black hover:text-white transition delay-50 ease-in">
+            <button
+              onClick={() => dispatch(addToCart(product))}
+              className="text-xs w-28 flex items-center gap-2 justify-center border rounded-full py-0.5 hover:bg-black hover:text-white transition delay-50 ease-in"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

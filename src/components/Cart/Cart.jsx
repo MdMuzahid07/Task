@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 import CartCard from "../common/card/CartCard";
 import Drawer from "../drawer/Drawer";
+import { useSelector } from "react-redux";
 
 const Cart = ({ cartActive, styles }) => {
+  const { cart } = useSelector((state) => state.products);
+  console.log(cart, "cart");
+
   return (
     <Drawer activeDrawer={cartActive} styles={styles}>
       <div className="overflow-y-auto h-[70vh] pr-2">
-        <CartCard />
-        <CartCard />
+        {cart?.map((product) => (
+          <CartCard key={product?.id} product={product} />
+        ))}
       </div>
       <hr className="my-3" />
       <div className="w-full h-full bg-white">
