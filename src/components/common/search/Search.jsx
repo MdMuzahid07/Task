@@ -12,7 +12,9 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
   );
   const dispatch = useDispatch();
 
-  console.log(products);
+  let filterProducts = products.filter((product) =>
+    product?.title?.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   useEffect(() => {
     dispatch(getProductData());
@@ -71,7 +73,7 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
 
         {/* product cards  */}
         <div className="flex flex-wrap justify-center xl:justify-start gap-10 h-[60vh] md:max-h-[50vh] overflow-y-auto">
-          {products?.slice(0, 4).map((product) => (
+          {filterProducts?.slice(0, 4).map((product) => (
             <Card key={product.id} product={product} />
           ))}
         </div>
