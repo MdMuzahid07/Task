@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductData } from "./features/products/productSlice";
 import Slider from "./components/home/Slider";
+import ProductOverView from "./components/home/ProductOverView";
 
 const App = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <>
       <Slider />
+      <ProductOverView />
     </>
   );
 };
