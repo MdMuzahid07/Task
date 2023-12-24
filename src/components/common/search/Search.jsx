@@ -1,10 +1,22 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Drawer from "../../drawer/Drawer";
 import Card from "../card/Card";
+import { getProductData } from "../../../features/products/productSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Search = ({ activeDrawer, setActiveDrawer }) => {
   const [inputValue, setInputValue] = useState(" ");
+  const { products, isLoading, isError, error } = useSelector(
+    (state) => state.products
+  );
+  const dispatch = useDispatch();
+
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(getProductData());
+  }, [dispatch]);
 
   console.log("onChange", inputValue);
 
@@ -59,10 +71,9 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
 
         {/* product cards  */}
         <div className="flex flex-wrap justify-center xl:justify-start gap-10 h-[60vh] md:max-h-[50vh] overflow-y-auto">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {products?.slice(0, 4).map((product) => (
+            <Card key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </Drawer>
