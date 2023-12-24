@@ -2,7 +2,7 @@ import { appStore, playStore } from "../../../assets";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t mt-24 mx-5 xl:mx-0">
+    <footer className="bg-white border-t mx-5 xl:mx-0">
       <div className="max-w-7xl mx-auto py-24 px:5 xl:px-0 flex justify-between flex-wrap gap-16">
         <ul>
           <li className="text-xl mb-8">About US</li>

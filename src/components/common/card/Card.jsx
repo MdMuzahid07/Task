@@ -1,6 +1,6 @@
-const Card = () => {
+const Card = ({ product }) => {
   return (
-    <div className="sm:max-w-[250px] md:max-w-[270px] h-full w-full rounded-xl border bg-white text-black relative">
+    <div className="sm:max-w-[250px] md:max-w-[270px] h-full max-h-[400px] sm:max-h-[350px] w-full rounded-xl border bg-white text-black relative">
       <figure>
         <img
           className="h-[250px] sm:max-h-[200px] rounded-t-xl w-full object-cover object-center"
@@ -8,7 +8,7 @@ const Card = () => {
           alt=""
         />
       </figure>
-      <div className="max-h-[100px] h-full w-full p-4">
+      <div className="min-h-[150px] h-full w-full p-4">
         <div className="flex justify-between items-center">
           <p>title</p>
           <p>$40</p>

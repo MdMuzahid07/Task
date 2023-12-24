@@ -3,6 +3,7 @@ import Search from "../search/Search";
 import Mobile from "./Mobile";
 import Cart from "../../Cart/Cart";
 import Profile from "../../profile/Profile";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [activeDrawer, setActiveDrawer] = useState(false);
@@ -50,7 +51,9 @@ const Navbar = () => {
           </li>
           <li className="hidden md:block">
             <ul className="flex items-center gap-7 ">
-              <li className="text-[16px] cursor-pointer">Home</li>
+              <li className="text-[16px] cursor-pointer">
+                <Link to="/">Home</Link>
+              </li>
               <li className="text-[16px] cursor-pointer">Shop</li>
             </ul>
           </li>
