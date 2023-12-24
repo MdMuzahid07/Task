@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const Cart = ({ cartActive, styles }) => {
   const { cart } = useSelector((state) => state.products);
-  console.log(cart, "cart");
 
   return (
     <Drawer activeDrawer={cartActive} styles={styles}>
