@@ -21,7 +21,7 @@ const FeaturesProducts = () => {
         </h1>
         <div className="grid lg:grid-cols-11 gap-5 mt-16">
           <div className="col-span-2">
-            <p>im awesome</p>
+            <h1>Search By</h1>
           </div>
           <div className="col-span-9">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">

@@ -37,9 +37,19 @@ const CartCard = ({ product }) => {
         </p>
 
         <div className="flex items-center gap-3 absolute bottom-0">
-          <button onClick={() => handleQuantity(false)}>-</button>
+          <button
+            className="w-4 h-4 flex items-center justify-center "
+            onClick={() => handleQuantity(false)}
+          >
+            -
+          </button>
           <p>{quantity}</p>
-          <button onClick={() => handleQuantity(true)}>+</button>
+          <button
+            className="w-4 h-4 flex items-center justify-center "
+            onClick={() => handleQuantity(true)}
+          >
+            +
+          </button>
         </div>
       </div>
       <button
