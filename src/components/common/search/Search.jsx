@@ -18,8 +18,6 @@ const Search = ({ activeDrawer, setActiveDrawer }) => {
     dispatch(getProductData());
   }, [dispatch]);
 
-  console.log("onChange", inputValue);
-
   const handleKey = (event) => {
     if (event.key == "Enter") {
       console.log("enter working");

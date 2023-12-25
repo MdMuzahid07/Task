@@ -19,8 +19,6 @@ const CartCard = ({ product }) => {
 
   const total = product?.price * quantity;
 
-  console.log(product, "cart card");
-
   return (
     <div className="w-full h-[150px] bg-slate-100 rounded-xl p-4 mb-7 flex justify-between relative">
       <figure className="w-[30%]">
@@ -54,7 +52,7 @@ const CartCard = ({ product }) => {
       </div>
       <button
         onClick={() => dispatch(removeProduct(product?.id))}
-        className="absolute right-2 top-2 w-7 h-7 flex items-center justify-center border rounded-full bg-white text-black"
+        className="absolute right-2 top-2 w-7 h-7 flex items-center justify-center border rounded-full bg-black text-white hover:bg-red-500 transition delay-50 ease-in "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
