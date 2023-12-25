@@ -6,7 +6,7 @@ import Card from "../common/card/Card";
 const FeaturesProducts = () => {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const [priceFiltering, setPriceFiltering] = useState(products);
+  const [priceFiltering, setPriceFiltering] = useState([]);
   useEffect(() => {
     dispatch(getProductData());
   }, [dispatch]);
@@ -15,8 +15,7 @@ const FeaturesProducts = () => {
     const [minPrice, maxPrice] = e.target.value.split("-");
     console.log(minPrice, maxPrice, "Min-Max");
     if (!e.target.checked) {
-      setPriceFiltering(products);
-      return;
+      return setPriceFiltering(products);
     }
     const filteredProducts = products?.filter(({ price }) => {
       return price >= minPrice && price <= maxPrice;
@@ -37,7 +36,7 @@ const FeaturesProducts = () => {
               <p className="mb-2">Price</p>
               <li className="flex items-center gap-4 cursor-pointer">
                 <input
-                  onChange={handleProductPriceFiltering}
+                  onClick={handleProductPriceFiltering}
                   value="100-500"
                   type="checkbox"
                   name=""
@@ -49,7 +48,7 @@ const FeaturesProducts = () => {
               </li>
               <li className="flex items-center gap-4 cursor-pointer my-3">
                 <input
-                  onChange={handleProductPriceFiltering}
+                  onClick={handleProductPriceFiltering}
                   value="500-1000"
                   type="checkbox"
                   name=""
@@ -61,7 +60,7 @@ const FeaturesProducts = () => {
               </li>
               <li className="flex items-center gap-4 cursor-pointer">
                 <input
-                  onChange={handleProductPriceFiltering}
+                  onClick={handleProductPriceFiltering}
                   value="1000-1500"
                   type="checkbox"
                   name=""
@@ -75,9 +74,13 @@ const FeaturesProducts = () => {
           </div>
           <div className="col-span-9">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
-              {priceFiltering?.map((product) => (
-                <Card key={product?.id} product={product} />
-              ))}
+              {priceFiltering.length > 0
+                ? priceFiltering?.map((product) => (
+                    <Card key={product?.id} product={product} />
+                  ))
+                : products?.map((product) => (
+                    <Card key={product?.id} product={product} />
+                  ))}
             </div>
           </div>
         </div>
