@@ -6,15 +6,22 @@ import Card from "../common/card/Card";
 const FeaturesProducts = () => {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const [priceFiltering, setPriceFiltering] = useState(null);
-
+  const [priceFiltering, setPriceFiltering] = useState(products);
   useEffect(() => {
     dispatch(getProductData());
   }, [dispatch]);
 
   const handleProductPriceFiltering = (e) => {
     const [minPrice, maxPrice] = e.target.value.split("-");
-    console.log(minPrice, maxPrice, "###########");
+    console.log(minPrice, maxPrice, "Min-Max");
+    if (!e.target.checked) {
+      setPriceFiltering(products);
+      return;
+    }
+    const filteredProducts = products?.filter(({ price }) => {
+      return price >= minPrice && price <= maxPrice;
+    });
+    setPriceFiltering(filteredProducts);
   };
 
   return (
@@ -30,7 +37,7 @@ const FeaturesProducts = () => {
               <p className="mb-2">Price</p>
               <li className="flex items-center gap-4 cursor-pointer">
                 <input
-                  onClick={handleProductPriceFiltering}
+                  onChange={handleProductPriceFiltering}
                   value="100-500"
                   type="checkbox"
                   name=""
@@ -41,13 +48,20 @@ const FeaturesProducts = () => {
                 </label>
               </li>
               <li className="flex items-center gap-4 cursor-pointer my-3">
-                <input value="500-1000" type="checkbox" name="" id="500-1000" />
+                <input
+                  onChange={handleProductPriceFiltering}
+                  value="500-1000"
+                  type="checkbox"
+                  name=""
+                  id="500-1000"
+                />
                 <label htmlFor="500-1000">
                   <p className="hover:underline">$500 - $1000</p>
                 </label>
               </li>
               <li className="flex items-center gap-4 cursor-pointer">
                 <input
+                  onChange={handleProductPriceFiltering}
                   value="1000-1500"
                   type="checkbox"
                   name=""
@@ -61,7 +75,7 @@ const FeaturesProducts = () => {
           </div>
           <div className="col-span-9">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
-              {products?.map((product) => (
+              {priceFiltering?.map((product) => (
                 <Card key={product?.id} product={product} />
               ))}
             </div>
