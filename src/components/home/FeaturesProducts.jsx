@@ -1,15 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getProductData } from "../../features/products/productSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "../common/card/Card";
 
 const FeaturesProducts = () => {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
+  const [priceFiltering, setPriceFiltering] = useState(null);
 
   useEffect(() => {
     dispatch(getProductData());
   }, [dispatch]);
+
+  const handleProductPriceFiltering = (e) => {
+    const [minPrice, maxPrice] = e.target.value.split("-");
+    console.log(minPrice, maxPrice, "###########");
+  };
 
   return (
     <section className="bg-slate-100 mt-32 py-20">
@@ -23,19 +29,30 @@ const FeaturesProducts = () => {
             <ul className="mt-7 w-full">
               <p className="mb-2">Price</p>
               <li className="flex items-center gap-4 cursor-pointer">
-                <input type="checkbox" name="" id="100-500" />
+                <input
+                  onClick={handleProductPriceFiltering}
+                  value="100-500"
+                  type="checkbox"
+                  name=""
+                  id="100-500"
+                />
                 <label htmlFor="100-500">
                   <p className="hover:underline">$100 - $500</p>
                 </label>
               </li>
               <li className="flex items-center gap-4 cursor-pointer my-3">
-                <input type="checkbox" name="" id="500-1000" />
+                <input value="500-1000" type="checkbox" name="" id="500-1000" />
                 <label htmlFor="500-1000">
                   <p className="hover:underline">$500 - $1000</p>
                 </label>
               </li>
               <li className="flex items-center gap-4 cursor-pointer">
-                <input type="checkbox" name="" id="1000-1500" />
+                <input
+                  value="1000-1500"
+                  type="checkbox"
+                  name=""
+                  id="1000-1500"
+                />
                 <label htmlFor="1000-1500">
                   <p className="hover:underline">$1000 - $1500</p>
                 </label>
