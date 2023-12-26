@@ -12,7 +12,7 @@ const Cart = ({ cartActive, styles }) => {
     let totalPrice = 0;
     if (cart?.length > 0) {
       cart?.forEach((product) => {
-        totalPrice = totalPrice + product?.price;
+        totalPrice = totalPrice + product?.price * product?.quantity;
       });
     }
     setProductsPrice(totalPrice);
