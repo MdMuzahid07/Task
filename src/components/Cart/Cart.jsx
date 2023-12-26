@@ -11,8 +11,8 @@ const Cart = ({ cartActive, styles }) => {
   useEffect(() => {
     let totalPrice = 0;
     if (cart?.length > 0) {
-      cart?.forEach(({ price }) => {
-        totalPrice = totalPrice + price;
+      cart?.forEach((product) => {
+        totalPrice = totalPrice + product?.price;
       });
     }
     setProductsPrice(totalPrice);

@@ -86,7 +86,7 @@ const Navbar = () => {
                 </svg>
               </button>
               <Cart
-                styles={`absolute top-[70px] min-h-[100vh] bg-white right-0 w-[100vw] md:w-[60vw] lg:w-[45vw]  xl:w-[40vw] 2xl:w-[25vw] px-5 py-10 border-l`}
+                styles={`absolute top-[70px] min-h-[100vh] bg-white right-0 w-[100vw] md:w-[60vw] lg:w-[45vw]  xl:w-[40vw] 2xl:w-[500px] px-5 py-10 border-l`}
                 cartActive={cartActive}
               />
             </li>

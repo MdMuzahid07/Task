@@ -1,23 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeProduct } from "../../../features/products/productSlice";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeProduct,
+} from "../../../features/products/productSlice";
 
 const CartCard = ({ product }) => {
-  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  const handleQuantity = (value) => {
-    if (value) {
-      const count = quantity + 1;
-      setQuantity(count);
-    } else if (quantity > 1) {
-      const count = quantity - 1;
-      setQuantity(count);
-    }
-  };
-
-  const total = product?.price * quantity;
+  const total = product?.price * product?.quantity;
 
   return (
     <div className="w-full h-[150px] bg-slate-100 rounded-xl p-4 mb-7 flex justify-between relative">
@@ -31,20 +24,21 @@ const CartCard = ({ product }) => {
       <div className="w-[70%] pl-3 relative">
         <h1 className="text-[18px]">{product?.title}</h1>
         <p>
-          ${product?.price} <span>* {quantity}</span> <span>= ${total}</span>
+          ${product?.price} <span>* {product?.quantity}</span>{" "}
+          <span>= ${total}</span>
         </p>
 
         <div className="flex items-center gap-3 absolute bottom-0">
           <button
             className="w-4 h-4 flex items-center justify-center "
-            onClick={() => handleQuantity(false)}
+            onClick={() => dispatch(decreaseQuantity(product?.id))}
           >
             -
           </button>
-          <p>{quantity}</p>
+          <p>{product?.quantity}</p>
           <button
             className="w-4 h-4 flex items-center justify-center "
-            onClick={() => handleQuantity(true)}
+            onClick={() => dispatch(increaseQuantity(product?.id))}
           >
             +
           </button>
